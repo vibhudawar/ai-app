@@ -1,6 +1,5 @@
 "use client";
 import { Sidebar } from "flowbite-react";
-// import { HiOutlineChevronRight, HiOutlineChevronDown } from "react-icons/hi";
 import { HiOutlineMinusSm, HiOutlinePlusSm } from "react-icons/hi";
 import { twMerge } from "tailwind-merge";
 import { drawerContent } from "./test";
