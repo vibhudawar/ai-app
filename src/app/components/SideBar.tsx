@@ -51,24 +51,30 @@ export default function SideBar() {
     >
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-          <Sidebar.Collapse
-            label="Footer menu"
-            renderChevronIcon={(theme, open) => {
-              const IconComponent = open ? HiOutlineMinusSm : HiOutlinePlusSm;
-              return (
-                <IconComponent
-                  aria-hidden
-                  className={twMerge(
-                    theme.label.icon.open[open ? "on" : "off"]
-                  )}
-                />
-              );
-            }}
-          >
-            {drawerContent.menu.items.map((item) => (
-              <SidebarItem key={item.url} {...item} />
-            ))}
-          </Sidebar.Collapse>
+          {drawerContent.menu.items ? (
+            <Sidebar.Collapse
+              label={drawerContent.menu.title}
+              renderChevronIcon={(theme, open) => {
+                const IconComponent = open ? HiOutlineMinusSm : HiOutlinePlusSm;
+                return (
+                  <IconComponent
+                    aria-hidden
+                    className={twMerge(
+                      theme.label.icon.open[open ? "on" : "off"]
+                    )}
+                  />
+                );
+              }}
+            >
+              {drawerContent.menu.items.map((item: any) => (
+                <SidebarItem key={item.url} {...item} />
+              ))}
+            </Sidebar.Collapse>
+          ) : (
+            drawerContent.menu.title && (
+              <Sidebar.Item>{drawerContent.menu.title}</Sidebar.Item>
+            )
+          )}
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
